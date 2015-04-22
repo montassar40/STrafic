@@ -1,15 +1,15 @@
-(function($){
+(function($) {
 
 	"use strict";
-	
-	$(document).ready(function () {
+
+	$(document).ready(function() {
 		search.init();
 	});
-	
+
 	var search = {
-	
-		init: function () {
-	
+
+		init : function() {
+
 			// SEARCH
 			$('.advanced-search .f-row:nth-child(2)').hide(500);
 			$('input[type=radio]#oneway').click(function() {

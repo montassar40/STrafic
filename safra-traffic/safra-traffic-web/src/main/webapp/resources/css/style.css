@@ -84,7 +84,7 @@ h5 {font-size:15px;padding:0 0 15px;}
 h6 {font-size:17px;text-transform:uppercase;padding:0 0 23px;}
 
 /* 04 COLOR SPECIFICS */       
-.black	{background-color:#191F26 !important;}
+.black	{background-color:#FFB400 !important;}
 .grey	{background-color:#34394A !important;}
 .white 	{background-color:#fff !important;}
 
@@ -109,7 +109,7 @@ h6 {font-size:17px;text-transform:uppercase;padding:0 0 23px;}
 .btn 		{border:none;text-transform:uppercase;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;color:#fff !important;display:inline-block;text-align:center;max-width:100%;}
 .btn.small 	{font-size:12px;padding:8px 14px;}
 .btn.medium 	{font-size:15px;padding:11px 20px;min-width:142px;}
-.btn.large	{font-size:17px;width:200px;height:54px;line-height:54px;padding:0 14px;}
+.btn.large	{font-size:17px;width:200px;height:54px;line-height:54px;padding:0 14px;margin-top:35px;}
 .btn.huge 	{font-size:20px;width:270px;height:70px;line-height:70px;padding:0 14px;}
 
 .btn.white 	{color:#191F26 !important;}
