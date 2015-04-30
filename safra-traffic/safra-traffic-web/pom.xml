@@ -17,7 +17,7 @@
 		</dependency>
 		<dependency>
 			<groupId>tn.edu.esprit.sleam</groupId>
-			<artifactId>e-safra</artifactId>
+			<artifactId>safra-traffic-ejb</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<type>ejb</type>
 		</dependency>

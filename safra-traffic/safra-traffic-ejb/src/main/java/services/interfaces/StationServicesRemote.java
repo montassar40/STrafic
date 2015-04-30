@@ -46,4 +46,8 @@ public interface StationServicesRemote {
 
 	Station findStationByName(String name);
 
+	List<Line> findAllLines();
+
+	List<Bus> findAvailableBuses();
+
 }

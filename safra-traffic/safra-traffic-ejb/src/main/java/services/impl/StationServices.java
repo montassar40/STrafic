@@ -1,5 +1,6 @@
 package services.impl;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -148,6 +149,13 @@ public class StationServices implements StationServicesRemote,
 				.getResultList();
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Line> findAllLines() {
+		return entityManager.createQuery("Select l from Line l")
+				.getResultList();
+	}
+
 	@Override
 	public Boolean assignBusesToLine(List<Bus> bus, Line line) {
 		Boolean b = false;
@@ -238,10 +246,24 @@ public class StationServices implements StationServicesRemote,
 				.setParameter("param1", name).getSingleResult();
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Bus> findAvailableBuses() {
+		return (List<Bus>) entityManager.createQuery(
+				"select b from Bus  b where b.line = Null").getResultList();
+	}
+
 	@Override
 	public Station findStationByName(String name) {
 		return (Station) entityManager
 				.createQuery("select s from Station  s where s.name=:param1")
 				.setParameter("param1", name).getSingleResult();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Bus> findAllBuses() {
+		return (List<Bus>) entityManager.createQuery("select b from Bus b ")
+				.getResultList();
 	}
 }

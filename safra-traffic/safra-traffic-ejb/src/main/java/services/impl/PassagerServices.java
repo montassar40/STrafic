@@ -7,10 +7,9 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import domain.Bus;
-import domain.Passenger;
 import services.interfaces.PassagerServiceLocal;
 import services.interfaces.PassagerServiceRemote;
+import domain.Passenger;
 
 /**
  * Session Bean implementation class PassagerServices
@@ -37,7 +36,7 @@ public class PassagerServices implements PassagerServiceLocal,
 
 	@Override
 	public void editPassager(int id) {
-		// entityManager.merge(arg0)
+		entityManager.merge(findPassagerById(id));
 	}
 
 	@Override
@@ -48,8 +47,8 @@ public class PassagerServices implements PassagerServiceLocal,
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Passenger> findAllPassangers() {
-		return entityManager.createQuery("Select p from Passenger p")
-				.getResultList();
+		return entityManager.createQuery(
+				"select p from User p where DTYPE= Passenger ").getResultList();
 	}
 
 	@Override

@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<body>
+	<h1>manage passengers</h1>
+	<h:form>
+		<h:dataTable value="#{passengerBean.passengers}" var="p" border="2">
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="name" />
+				</f:facet>
+#{p.name}
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="login" />
+				</f:facet>
+#{p.login}
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="password" />
+				</f:facet>
+#{p.password}
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="cash" />
+				</f:facet>
+#{p.cash}
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="birthDay" />
+				</f:facet>
+#{p.birthDay}
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="gender" />
+				</f:facet>
+#{p.gender}
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="#" />
+				</f:facet>
+				<h:commandButton action="#{passengerBean.doSelect}" value="select">
+					<f:setPropertyActionListener value="#{p}"
+						target="#{passengerBean.passenger}"></f:setPropertyActionListener>
+				</h:commandButton>
+			</h:column>
+		</h:dataTable>
+		<h:commandButton action="#{passengerBean.doSelect()}"
+			value="add passenger" />
+		<h:panelGrid columns="2" rendered="#{passengerBean.visibility}">
+			<h:outputText value="name" />
+			<h:inputText value="#{passengerBean.passenger.name}" />
+			<h:outputText value="login" />
+			<h:inputText value="#{passengerBean.passenger.login}" />
+			<h:outputText value="password" />
+			<h:inputText value="#{passengerBean.passenger.password}" />
+			<h:outputText value="cash" />
+			<h:inputText value="#{passengerBean.passenger.cash}" />
+			<h:outputText value="birthDay" converter="javax.faces.DateTime" />
+			<h:inputText value="#{passengerBean.passenger.birthDay}" />
+			<h:outputText value="gender" />
+			<h:inputText value="#{passengerBean.passenger.gender}" />
+			<h:commandButton action="#{passengerBean.doSaveOrUpdate}"
+				value="save or update" />
+			<h:commandButton action="#{passengerBean.doDeletePass}"
+				value="delete" />
+		</h:panelGrid>
+
+	</h:form>
+</body>
+</html>

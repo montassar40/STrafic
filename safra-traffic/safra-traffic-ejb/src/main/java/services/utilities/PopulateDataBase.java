@@ -46,6 +46,8 @@ public class PopulateDataBase {
 		Bus bus2 = new Bus("B02");
 		Bus bus3 = new Bus("B03");
 		Bus bus4 = new Bus("B04");
+		Bus bus5 = new Bus("B05");
+		Bus bus6 = new Bus("B06");
 
 		Line line = new Line("Tun-Lambadouza");
 		Line line2 = new Line("Tun-Sfax");
@@ -122,7 +124,8 @@ public class PopulateDataBase {
 		Stop stop = new Stop(0, stationServicesLocal.findBusByName("B03"),
 				stationServicesLocal.findStationByName("Rouad"));
 
-		
+		entityManager.persist(bus5);
+		entityManager.persist(bus6);
 		entityManager.persist(stop2);
 		entityManager.persist(stop4);
 		entityManager.persist(stop3);

@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<head>
+<title>Not present in rendered output</title>
+</head>
+<body>
+	<iframe
+		src="http://www.facebook.com/plugins/like.php?href=https://www.facebook.com/smartsos.gforce?fref=ts;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=true"
+		scrolling="no" frameborder="0"
+		style="border: none; overflow: hidden; height: 98px; width: 400px;"
+		allowtransparency="true"></iframe>
+	<h:form>
+
+		<h3>Assign buses to line</h3>
+		<h:selectOneMenu value="#{assignBusesBean.idSelectedLine}">
+			<f:selectItems value="#{assignBusesBean.items}" />
+		</h:selectOneMenu>
+		<h:dataTable border="1" value="#{assignBusesBean.dataModel}" var="l">
+			<h:column id="column1">
+				<f:facet name="header">
+					<h:outputText value="N° Bus"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{l.num}" />
+			</h:column>
+			<h:column id="column2">
+				<h:selectBooleanCheckbox value="#{assignBusesBean.busesMap[l]}">
+				</h:selectBooleanCheckbox>
+			</h:column>
+		</h:dataTable>
+
+		<h:commandButton value="Submit" action="#{assignBusesBean.doAssign}" />
+	</h:form>
+</body>
+</html>
