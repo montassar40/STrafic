@@ -33,4 +33,8 @@ public class PassengerController {
 		this.passengers = passengers;
 	}
 
+	public Passenger doFindPassengerByName(String value) {
+		return passagerServiceLocal.getPassengerByName(value);
+	}
+
 }

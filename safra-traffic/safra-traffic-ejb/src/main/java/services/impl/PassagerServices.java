@@ -56,4 +56,11 @@ public class PassagerServices implements PassagerServiceLocal,
 		entityManager.remove(findPassagerById(id));
 	}
 
+	@Override
+	public Passenger getPassengerByName(String value) {
+		return (Passenger) entityManager.createQuery(
+				"select p from User p where DTYPE= Passenger and name = "
+						+ value).getSingleResult();
+	}
+
 }

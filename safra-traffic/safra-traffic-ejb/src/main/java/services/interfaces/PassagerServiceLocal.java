@@ -18,4 +18,6 @@ public interface PassagerServiceLocal {
 	List<Passenger> findAllPassangers();
 
 	void deletePassager(int id);
+
+	Passenger getPassengerByName(String value);
 }
