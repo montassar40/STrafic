@@ -1,4 +1,4 @@
-package mBeans;
+package beans;
 
 import java.util.ArrayList;
 import java.util.HashMap;
