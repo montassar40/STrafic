@@ -42,43 +42,59 @@ public class PopulateDataBase {
 
 	@PostConstruct
 	public void populateDb() {
-		Bus bus = new Bus("B01");
-		Bus bus2 = new Bus("B02");
-		Bus bus3 = new Bus("B03");
-		Bus bus4 = new Bus("B04");
-		Bus bus5 = new Bus("B05");
-		Bus bus6 = new Bus("B06");
+		Bus bus1 = new Bus("Bus01");
+		Bus bus2 = new Bus("Bus02");
+		Bus bus3 = new Bus("Bus03");
+		Bus bus4 = new Bus("Bus04");
 
-		Line line = new Line("Tun-Lambadouza");
-		Line line2 = new Line("Tun-Sfax");
+		Line line1 = new Line("10 Décembre - Ariana El Soghra");
+		Line line2 = new Line("Passage - Ariana");
 
-		Station station = new Station("Tun");
-		Station station2 = new Station("Safax");
-		Station station3 = new Station("Lambadouza");
-		Station station4 = new Station("Rouad");
+		Station station10 = new Station("10 Décembre");
+		Station station11 = new Station("Magasin Magro");
+		Station station12 = new Station("Enkhilette");
+		Station station13 = new Station("Pole Technologique El Ghazela");
+		Station station14 = new Station("Ariana El Soghra");
+
+		Station station21 = new Station("Passage");
+		Station station22 = new Station("Cité el Khathra");
+		Station station23 = new Station("Lycée Technique Arina");
+		Station station24 = new Station("Ariana");
 
 		List<Bus> listBuses1 = new ArrayList<>();
 		List<Bus> listBuses2 = new ArrayList<>();
 
-		listBuses1.add(bus);
+		listBuses1.add(bus1);
 		listBuses1.add(bus2);
 
 		listBuses2.add(bus3);
 		listBuses2.add(bus4);
 
-		line.linkBusesToThisLine(listBuses1);
+		line1.linkBusesToThisLine(listBuses1);
 		line2.linkBusesToThisLine(listBuses2);
 
-		Driver driver = new Driver(1, "matin", "Mohamed", "med@driver.tn",
+		Driver driver1 = new Driver(1, "Matin", "Mohamed", "med@driver.tn",
 				"0000");
-		entityManager.persist(driver);
-		Driver driver2 = new Driver(1, "midi", "Nizar", "nizar@driver.tn",
+		entityManager.persist(driver1);
+
+		Driver driver2 = new Driver(1, "Matin", "Saleh", "saleh@driver.tn",
 				"0000");
 		entityManager.persist(driver2);
+
+		Driver driver3 = new Driver(1, "Aprés midi", "Nidhal",
+				"nidhal@driver.tn", "0000");
+		entityManager.persist(driver3);
+
+		Driver driver4 = new Driver(1, "Aprés midi", "Samir",
+				"samir@driver.tn", "0000");
+		entityManager.persist(driver4);
+
 		BusMan busMan = new BusMan(5, "Seif", "seif@man.tn", "0000");
 		entityManager.persist(busMan);
+
 		BusMan busMan2 = new BusMan(5, "Amine", "amine@man.tn", "0000");
 		entityManager.persist(busMan2);
+
 		try {
 			Passenger passenger = new Passenger((Double) 120.0,
 					new SimpleDateFormat("MM/dd/yyyy").parse("11/25/1991"),
@@ -89,49 +105,80 @@ public class PopulateDataBase {
 
 		// Creation of a line
 
-		Map<Integer, Station> stations = new HashMap();
+		Map<Integer, Station> stations1 = new HashMap();
 		Map<Integer, Station> stations2 = new HashMap();
 
-		stations.put(0, station);
-		stations.put(1, station2);
-		stations.put(2, station3);
+		stations1.put(0, station10);
+		stations1.put(1, station11);
+		stations1.put(2, station12);
+		stations1.put(2, station13);
+		stations1.put(2, station14);
 
-		stations2.put(0, station4);
-		stations2.put(1, station2);
-		stations2.put(2, station);
+		stations2.put(0, station21);
+		stations2.put(1, station22);
+		stations2.put(2, station23);
+		stations2.put(1, station24);
 
-		entityManager.persist(line);
+		entityManager.persist(line1);
 		entityManager.persist(line2);
 
-		entityManager.persist(station);
-		entityManager.persist(station2);
-		entityManager.persist(station3);
-		entityManager.persist(station4);
+		entityManager.persist(station10);
+		entityManager.persist(station11);
+		entityManager.persist(station12);
+		entityManager.persist(station13);
+		entityManager.persist(station14);
+		entityManager.persist(station21);
+		entityManager.persist(station22);
+		entityManager.persist(station23);
+		entityManager.persist(station24);
 
-		stationServicesLocal.createLine(line, stations);
-		stationServicesLocal.createLine(line2, stations2);
+		entityManager.persist(bus1);
+		entityManager.persist(bus2);
+		entityManager.persist(bus3);
+		entityManager.persist(bus4);
+//
+//		stationServicesLocal.createLine(line1, stations1);
+//		stationServicesLocal.createLine(line2, stations2);
+//
+//		Stop stop1 = new Stop(0, stationServicesLocal.findBusByName("Bus01"),
+//				stationServicesLocal.findStationByName("10 Décembre"));
+//
+//		Stop stop2 = new Stop(0, stationServicesLocal.findBusByName("Bus01"),
+//				stationServicesLocal.findStationByName("Magasin Magro"));
+//
+//		Stop stop3 = new Stop(0,
+//				stationServicesLocal.findBusByName("Enkhilette"),
+//				stationServicesLocal.findStationByName("Enkhilette"));
+//
+//		Stop stop4 = new Stop(0, stationServicesLocal.findBusByName("Bus01"),
+//				stationServicesLocal
+//						.findStationByName("Pole Technologique El Ghazela"));
+//
+//		Stop stop5 = new Stop(0, stationServicesLocal.findBusByName("Bus01"),
+//				stationServicesLocal.findStationByName("Ariana El Soghra"));
+//
+//		Stop stop6 = new Stop(0, stationServicesLocal.findBusByName("Bus03"),
+//				stationServicesLocal.findStationByName("Passage"));
+//
+//		Stop stop7 = new Stop(0, stationServicesLocal.findBusByName("Bus03"),
+//				stationServicesLocal.findStationByName("Cité el Khathra"));
+//
+//		Stop stop8 = new Stop(0, stationServicesLocal.findBusByName("Bus03"),
+//				stationServicesLocal.findStationByName("Lycée Technique Arina"));
+//
+//		Stop stop9 = new Stop(0, stationServicesLocal.findBusByName("Bus03"),
+//				stationServicesLocal.findStationByName("Ariana"));
+//
+//		entityManager.persist(stop1);
+//		entityManager.persist(stop2);
+//		entityManager.persist(stop3);
+//		entityManager.persist(stop4);
+//		entityManager.persist(stop5);
+//		entityManager.persist(stop6);
+//		entityManager.persist(stop7);
+//		entityManager.persist(stop8);
+//		entityManager.persist(stop9);
 
-		Stop stop2 = new Stop(0, stationServicesLocal.findBusByName("B01"),
-				stationServicesLocal.findStationByName("Tun"));
-		Stop stop4 = new Stop(0, stationServicesLocal.findBusByName("B01"),
-				stationServicesLocal.findStationByName("Safax"));
-		Stop stop3 = new Stop(0, stationServicesLocal.findBusByName("B02"),
-				stationServicesLocal.findStationByName("Tun"));
-		Stop stop5 = new Stop(0, stationServicesLocal.findBusByName("B02"),
-				stationServicesLocal.findStationByName("Safax"));
-		Stop stop6 = new Stop(0, stationServicesLocal.findBusByName("B02"),
-				stationServicesLocal.findStationByName("Lambadouza"));
-		Stop stop = new Stop(0, stationServicesLocal.findBusByName("B03"),
-				stationServicesLocal.findStationByName("Rouad"));
-
-		entityManager.persist(bus5);
-		entityManager.persist(bus6);
-		entityManager.persist(stop2);
-		entityManager.persist(stop4);
-		entityManager.persist(stop3);
-		entityManager.persist(stop5);
-		entityManager.persist(stop6);
-		entityManager.persist(stop);
 	}
 
 }

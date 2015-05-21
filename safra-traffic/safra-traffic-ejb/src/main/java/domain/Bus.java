@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  * Entity implementation class for Entity: Bus
@@ -24,6 +25,7 @@ public class Bus implements Serializable {
 
 	private List<Stop> stops;
 	private Line line;
+	private Driver driver;
 
 	public Bus() {
 		super();
@@ -44,7 +46,7 @@ public class Bus implements Serializable {
 		this.id = id;
 	}
 
-	@Column(unique=true)
+	@Column(unique = true)
 	public String getNum() {
 		return num;
 	}
@@ -74,6 +76,15 @@ public class Bus implements Serializable {
 	@Override
 	public String toString() {
 		return "Bus [num=" + num + "]";
+	}
+
+	@OneToOne
+	public Driver getDriver() {
+		return driver;
+	}
+
+	public void setDriver(Driver driver) {
+		this.driver = driver;
 	}
 
 }

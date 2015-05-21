@@ -4,7 +4,8 @@
 	xmlns:composite="http://java.sun.com/jsf/composite"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
 <head>
 <title>Add Line</title>
 </head>
@@ -31,8 +32,10 @@
 		</h:column>
 	</h:dataTable>
 
-
-	<h:commandButton action="#{lineBean.doCreateLine}" value="save" />
+	<p:commandButton value="Save"
+		action="#{lineBean.doCreateLine}"
+		styleClass="ui-priority-primary" />
+	<!-- 	<h:commandButton action="#{lineBean.doCreateLine}" value="save" /> -->
 </h:form>
 
 

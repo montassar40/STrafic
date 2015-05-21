@@ -5,6 +5,9 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.OneToOne;
+
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 /**
  * Entity implementation class for Entity: Driver
@@ -17,6 +20,8 @@ public class Driver extends User implements Serializable {
 	private Integer seniority;
 	private String shift;
 	private static final long serialVersionUID = 1L;
+
+	private Bus Bus;
 
 	public Driver() {
 		super();
@@ -49,5 +54,14 @@ public class Driver extends User implements Serializable {
 	public String toString() {
 		return "Driver [seniority=" + seniority + ", shift=" + shift + "]";
 	}
-	
+
+	@OneToOne(mappedBy = "driver")
+	@JsonIgnore
+	public Bus getBus() {
+		return Bus;
+	}
+
+	public void setBus(Bus bus) {
+		Bus = bus;
+	}
 }
