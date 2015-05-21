@@ -1,11 +1,12 @@
 package domain;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
 
@@ -21,7 +22,7 @@ public class Driver extends User implements Serializable {
 	private String shift;
 	private static final long serialVersionUID = 1L;
 
-	private Bus Bus;
+	private List<BusDriv> busDrivers;
 
 	public Driver() {
 		super();
@@ -55,13 +56,14 @@ public class Driver extends User implements Serializable {
 		return "Driver [seniority=" + seniority + ", shift=" + shift + "]";
 	}
 
-	@OneToOne(mappedBy = "driver")
+
+	@OneToMany(mappedBy = "driver")
 	@JsonIgnore
-	public Bus getBus() {
-		return Bus;
+	public List<BusDriv> getBusDrivers() {
+		return busDrivers;
 	}
 
-	public void setBus(Bus bus) {
-		Bus = bus;
+	public void setBusDrivers(List<BusDriv> busDrivers) {
+		this.busDrivers = busDrivers;
 	}
 }

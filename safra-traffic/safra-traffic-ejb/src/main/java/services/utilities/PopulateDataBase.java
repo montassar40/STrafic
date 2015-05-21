@@ -136,48 +136,13 @@ public class PopulateDataBase {
 		entityManager.persist(bus2);
 		entityManager.persist(bus3);
 		entityManager.persist(bus4);
-//
-//		stationServicesLocal.createLine(line1, stations1);
-//		stationServicesLocal.createLine(line2, stations2);
-//
-//		Stop stop1 = new Stop(0, stationServicesLocal.findBusByName("Bus01"),
-//				stationServicesLocal.findStationByName("10 Décembre"));
-//
-//		Stop stop2 = new Stop(0, stationServicesLocal.findBusByName("Bus01"),
-//				stationServicesLocal.findStationByName("Magasin Magro"));
-//
-//		Stop stop3 = new Stop(0,
-//				stationServicesLocal.findBusByName("Enkhilette"),
-//				stationServicesLocal.findStationByName("Enkhilette"));
-//
-//		Stop stop4 = new Stop(0, stationServicesLocal.findBusByName("Bus01"),
-//				stationServicesLocal
-//						.findStationByName("Pole Technologique El Ghazela"));
-//
-//		Stop stop5 = new Stop(0, stationServicesLocal.findBusByName("Bus01"),
-//				stationServicesLocal.findStationByName("Ariana El Soghra"));
-//
-//		Stop stop6 = new Stop(0, stationServicesLocal.findBusByName("Bus03"),
-//				stationServicesLocal.findStationByName("Passage"));
-//
-//		Stop stop7 = new Stop(0, stationServicesLocal.findBusByName("Bus03"),
-//				stationServicesLocal.findStationByName("Cité el Khathra"));
-//
-//		Stop stop8 = new Stop(0, stationServicesLocal.findBusByName("Bus03"),
-//				stationServicesLocal.findStationByName("Lycée Technique Arina"));
-//
-//		Stop stop9 = new Stop(0, stationServicesLocal.findBusByName("Bus03"),
-//				stationServicesLocal.findStationByName("Ariana"));
-//
-//		entityManager.persist(stop1);
-//		entityManager.persist(stop2);
-//		entityManager.persist(stop3);
-//		entityManager.persist(stop4);
-//		entityManager.persist(stop5);
-//		entityManager.persist(stop6);
-//		entityManager.persist(stop7);
-//		entityManager.persist(stop8);
-//		entityManager.persist(stop9);
+
+		stationServicesLocal.createLine(line1, stations1);
+
+		Stop stop1 = new Stop(0, stationServicesLocal.findBusByName("Bus01"),
+				stationServicesLocal.findStationByName("10 Décembre"));
+
+		entityManager.persist(stop1);
 
 	}
 

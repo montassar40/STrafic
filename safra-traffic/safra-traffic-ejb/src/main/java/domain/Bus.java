@@ -10,7 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 /**
  * Entity implementation class for Entity: Bus
@@ -25,7 +26,7 @@ public class Bus implements Serializable {
 
 	private List<Stop> stops;
 	private Line line;
-	private Driver driver;
+	private List<BusDriv> busDrivers;
 
 	public Bus() {
 		super();
@@ -56,6 +57,7 @@ public class Bus implements Serializable {
 	}
 
 	@OneToMany(mappedBy = "bus")
+	@JsonIgnore
 	public List<Stop> getStops() {
 		return stops;
 	}
@@ -65,6 +67,7 @@ public class Bus implements Serializable {
 	}
 
 	@ManyToOne
+	@JsonIgnore
 	public Line getLine() {
 		return line;
 	}
@@ -78,13 +81,14 @@ public class Bus implements Serializable {
 		return "Bus [num=" + num + "]";
 	}
 
-	@OneToOne
-	public Driver getDriver() {
-		return driver;
+	@OneToMany(mappedBy = "bus")
+	@JsonIgnore
+	public List<BusDriv> getBusDrivers() {
+		return busDrivers;
 	}
 
-	public void setDriver(Driver driver) {
-		this.driver = driver;
+	public void setBusDrivers(List<BusDriv> busDrivers) {
+		this.busDrivers = busDrivers;
 	}
 
 }

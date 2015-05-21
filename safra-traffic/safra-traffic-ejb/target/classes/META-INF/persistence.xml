@@ -5,6 +5,8 @@
 	<persistence-unit name="safra-traffic-ejb">
 		<jta-data-source>java:/safraTrafficDS</jta-data-source>
 		<class>domain.Bus</class>
+		<class>domain.BusDriv</class>
+		<class>domain.BusDrivId</class>
 		<class>domain.BusMan</class>
 		<class>domain.Driver</class>
 		<class>domain.Line</class>

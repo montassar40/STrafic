@@ -22,7 +22,7 @@ import domain.Station;
 public class LineBean {
 
 	private Line line = new Line();
-	private List<Station> stations = new ArrayList<Station>();
+	// private List<Station> stations = new ArrayList<Station>();
 	private DataModel<Station> dataModel = new ListDataModel<>();
 	private Map<Integer, Station> stationMap = new HashMap<Integer, Station>();
 	private List<Line> lines = new ArrayList<>();
@@ -128,9 +128,9 @@ public class LineBean {
 		return stationServicesLocal.findAllStations();
 	}
 
-	public void setStations(List<Station> stations) {
-		this.stations = stations;
-	}
+	// public void setStations(List<Station> stations) {
+	// this.stations = stations;
+	// }
 
 	public DataModel<Station> getDataModel() {
 		dataModel.setWrappedData(stationServicesLocal.findAllStations());

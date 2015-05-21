@@ -31,13 +31,28 @@
 				value="select" />
 		</h:column>
 	</h:dataTable>
+	<p:commandButton action="#{lineBean.doCreateLine()}" value="save"
+		ajax="false" />
 
-	<p:commandButton value="Save"
-		action="#{lineBean.doCreateLine}"
-		styleClass="ui-priority-primary" />
-	<!-- 	<h:commandButton action="#{lineBean.doCreateLine}" value="save" /> -->
 </h:form>
 
+<h:form>
+	<p:dataTable var="st" value="#{lineBean.stations}">
+		<p:column headerText="Id">
+			<h:outputText value="#{st.id}" />
+		</p:column>
+
+		<p:column headerText="Name">
+			<h:outputText value="#{st.name}" />
+		</p:column>
+
+		<p:column headerText="#">
+
+			<h:commandButton action="#{lineBean.doSelectStationForCurrentLine}"
+				value="select" />
+		</p:column>
+	</p:dataTable>
+</h:form>
 
 
 </html>

@@ -52,4 +52,6 @@ public interface StationServicesLocal {
 
 	List<Bus> findAllBuses();
 
+	Boolean updateStation(Station station);
+
 }

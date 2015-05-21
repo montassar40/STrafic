@@ -24,8 +24,9 @@ public interface DriverServicesLocal {
 	@Produces(MediaType.APPLICATION_JSON)
 	List<Bus> findBusesByDriverId(@PathParam("id") Integer idDriver);
 
+
 	@GET
 	@Produces("application/json")
-	List<Driver> findAllDrivers();
+	List<Driver> findAllBuses();
 
 }
